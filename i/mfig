@@ -1,0 +1,8 @@
+\begin{figure}[!ht]%htp]
+  \centering
+  \subfloat[Img1]{\label{fig_img1}\includegraphics[width=0.48\textwidth]{img/img1.png}}
+  \hspace{0.030\textwidth}
+  \subfloat[Img2]{\label{fig_img2}\includegraphics[width=0.48\textwidth]{img/img2.png}}
+  \caption{Legende}
+  \label{figs}
+\end{figure}

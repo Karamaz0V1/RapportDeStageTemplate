@@ -1,0 +1,118 @@
+% Rapport de Stage -- École supérieure d'ingénieurs de Rennes
+% Florent GUIOTTE
+\documentclass[a4paper,12pt,twoside,final]{article}
+
+% --- Packages --- 
+\usepackage[english,francais]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[pdftex]{graphicx}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage[french]{varioref}
+\usepackage{fancyhdr}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{subfig}
+\usepackage{wrapfig}
+\usepackage{numprint}
+%\usepackage[left=3cm, right=3cm]{geometry} % Modifier les marges /!\ avec fancyhdr
+
+% --- Includes --- 
+\include{palette}
+\include{mainvar}
+\include{macro}
+% TODO : Include pour du code (C, C++, ...)
+
+
+\newcommand{\HRule}{{\color{maincolor} \rule{\linewidth}{0.5mm}}}
+\setlength{\parskip}{1ex} % Espace entre les paragraphes
+\titleformat*{\section}{\pagestyle{empty}\sffamily\bfseries\color{maincolor}\LARGE}
+\titleformat*{\subsection}{\sffamily\bfseries\color{subgray}\large}
+\titleformat*{\subsubsection}{\sffamily\bfseries\color{subsubgray}\normalsize}
+\fancyhead[LE]{\reportauthor}
+\fancyhead[CE]{\reporteta}
+\fancyhead[RE]{}
+\fancyhead[LO]{}
+
+% --- Tentative de faire un glossaire, semi automatique, à refactor --- 
+%\makeglossary
+%\newcommand{\goglo}[1]{{\color{darkgreen}\emph{#1}}\glossary{#1}}
+
+\newcommand{\newempty}{
+  \pagestyle{empty}
+  \cleardoublepage
+}
+
+\newcommand{\newpartie}{
+  \pagestyle{empty}
+  \cleardoublepage
+  \pagestyle{fancy}
+}
+
+\newcommand{\newtitle}{
+  \pagestyle{empty}
+  \cleardoublepage
+  \pagestyle{plain}
+}
+
+\newcommand{\voidsheet}{
+    \pagestyle{empty}
+    \cleardoublepage
+    \null
+    \newpage
+    \null
+    \newpage
+}
+
+\hypersetup{
+    pdftitle={\reporttitle},
+    pdfauthor={\reportauthor},
+    pdfsubject={\reportsubject},
+    pdfkeywords=\pdfkw
+}
+
+% **************************
+% * Agencement des parties *
+% **************************
+
+\begin{document}
+\renewcommand\contentsname{Sommaire}    % Remplace Table des matières
+%\linespread{1.5}
+\pagenumbering{alph}
+%    \include{title}
+%    \voidsheet
+    \include{title}
+    \newempty
+%    \include{remerciements}
+%    \newtitle
+    \pagenumbering{arabic}
+    \tableofcontents
+    \newtitle
+%    \setlength{\baselineskip}{1.5\baselineskip}
+    \include{intro}
+    \newpartie
+    \include{partie1}
+    \newpartie
+    \include{partie2}
+    \newpartie
+    \include{partie3}
+    \newtitle
+    \include{conclusion}
+    \newtitle
+%    \include{resume}
+%    \newtitle
+%    \include{abstract}
+%    \newtitle
+%    \setlength{\baselineskip}{1.0\baselineskip}
+%    \include{glo}
+%    \newtitle
+%    \include{references}
+%    \newtitle
+%    \listoffigures
+%    \newtitle
+%    \include{annexe}
+\end{document}

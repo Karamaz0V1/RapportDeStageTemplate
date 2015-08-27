@@ -1,0 +1,12 @@
+\begin{figure}[!ht]
+    \center
+    \begin{tabular}{|c||l|r|c|}
+        \hline 
+         & & & \\
+        \hline
+         & & & \\
+        \hline
+    \end{tabular}
+    \caption{}
+    \label{tab_}
+\end{figure}

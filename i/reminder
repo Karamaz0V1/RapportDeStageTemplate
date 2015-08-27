@@ -1,0 +1,9 @@
+\emph{mettre en evidence}
+\footnote{Note de pied de page}
+\ieme
+\LaTeX
+\label{partie2}
+\ref{fig_img} \pageref{fig_img}
+\textbf{bold}
+\textsc{Guiotte}
+- -- ---
