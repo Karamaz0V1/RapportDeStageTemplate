@@ -1,17 +1,24 @@
+PROJET=rapport
 ARGS=-shell-escape
 #ARGS=-shell-escape -interaction=batchmode
 
-all: pre_clean pdf pdf_second_pass clean
+all: pre_clean pre_pdf glossary pdf pdf_second_pass clean
 	echo Done
 
+pre_clean:
+	rm -f *~ *.backup *.aux *.toc *.blg *.log *.out *.bbl *.dvi *.nav *.pyg *.snm *.lof *.acn *.acr *.alg *.glg *.glo *.gls *.ist
+
 clean:
-	rm -f *~ *.backup *.aux *.toc *.blg *.log *.out *.bbl *.dvi *.nav *.pyg *.snm *.lof
+	rm -f *~ *.backup *.aux *.toc *.blg *.log *.out *.bbl *.dvi *.nav *.pyg *.snm *.lof *.acn *.acr *.alg *.glg *.glo *.gls *.ist
+
+pre_pdf:
+	pdflatex $(ARGS) $(PROJET)
 
 pdf:
-	pdflatex $(ARGS) rapport.tex
+	pdflatex $(ARGS) $(PROJET)
 
 pdf_second_pass:
-	pdflatex $(ARGS) rapport.tex
+	pdflatex $(ARGS) $(PROJET)
 
-pre_clean:
-	rm -f *~ *.backup *.aux *.toc *.blg *.log *.out *.bbl *.dvi *.nav *.pyg *.snm *.lof
+glossary:
+	makeglossaries $(PROJET)

@@ -7,3 +7,13 @@
 \textbf{bold}
 \textsc{Guiotte}
 - -- ---
+
+% Glossaire & Acronymes
+\gls{label}
+\glspl{label} % utilise le pluriel
+\Gls{label}
+\Glspl{label}
+\glsdesc{label} % affiche la description
+\acrlong{label}
+\acrshort{label}
+\acrfull{label}

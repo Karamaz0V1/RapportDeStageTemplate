@@ -12,3 +12,11 @@
 *.pyg
 *.snm
 *.lof
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+

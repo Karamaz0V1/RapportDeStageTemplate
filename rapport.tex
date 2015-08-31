@@ -8,7 +8,6 @@
 \usepackage[T1]{fontenc}
 \usepackage[pdftex]{graphicx}
 \usepackage{setspace}
-\usepackage{hyperref}
 \usepackage[french]{varioref}
 \usepackage{fancyhdr}
 \usepackage{lmodern}
@@ -19,6 +18,8 @@
 \usepackage{subfig}
 \usepackage{wrapfig}
 \usepackage{numprint}
+\usepackage{hyperref}
+\usepackage{glossaries}
 %\usepackage[left=3cm, right=3cm]{geometry} % Modifier les marges /!\ avec fancyhdr
 
 % --- Includes --- 
@@ -38,9 +39,18 @@
 \fancyhead[RE]{}
 \fancyhead[LO]{}
 
-% --- Tentative de faire un glossaire, semi automatique, à refactor --- 
-%\makeglossary
-%\newcommand{\goglo}[1]{{\color{darkgreen}\emph{#1}}\glossary{#1}}
+% --- Glossaire ---
+\makeglossaries
+\glossarystyle{altlist}
+%\glossarystyle{altlistgroup}
+\usepackage{xparse}
+\DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
+  \newglossaryentry{gls-#3}{name={#5},text={#5\glsadd{#3}},
+    description={#6},#1
+  }
+  \newacronym[see={[Glossary:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
+}
+\include{glossaire}
 
 \newcommand{\newempty}{
   \pagestyle{empty}
