@@ -11,8 +11,8 @@
 \usepackage[french]{varioref}
 \usepackage{fancyhdr}
 \usepackage{lmodern}
-\usepackage{xcolor}
 \usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{listings}
 \usepackage{pdfpages}
 \usepackage{subfig}
@@ -41,14 +41,14 @@
 
 % --- Glossaire ---
 \makeglossaries
-\glossarystyle{altlist}
+%\glossarystyle{altlist}
 %\glossarystyle{altlistgroup}
 \usepackage{xparse}
 \DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
   \newglossaryentry{gls-#3}{name={#5},text={#5\glsadd{#3}},
     description={#6},#1
   }
-  \newacronym[see={[Glossary:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
+  \newacronym[see={[Cf. glossaire :]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
   \glsadd{gls-#3}
 }
 \include{glossaire}
@@ -98,8 +98,8 @@
 %    \voidsheet
     \include{title}
     \newempty
-%    \include{remerciements}
-%    \newtitle
+    \include{remerciements}
+    \newempty
     \pagenumbering{arabic}
     \tableofcontents
     \newtitle
@@ -119,11 +119,18 @@
 %    \include{abstract}
 %    \newtitle
 %    \setlength{\baselineskip}{1.0\baselineskip}
+    \phantomsection
+    \addcontentsline{toc}{section}{Références}
+    \bibliographystyle{myieeetr}
+    \bibliography{references}
+    \newtitle
     \include{glo}
     \newtitle
 %    \include{references}
 %    \newtitle
-%    \listoffigures
-%    \newtitle
-%    \include{annexe}
+    \phantomsection
+    \addcontentsline{toc}{section}{Table des figures}
+    \listoffigures
+    \newtitle
+    \include{annexe}
 \end{document}
