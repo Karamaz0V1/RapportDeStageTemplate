@@ -16,6 +16,10 @@ function glossary() {
     makeglossaries ${PROJET}
 }
 
+function references() {
+    bibtex ${PROJET}
+}
+
 function display() {
     #PID=$(ps | egrep -i acrobat | sed -e "s/^ *//" -e "s/ .*$//")
     #kill -15 $PID
@@ -24,4 +28,4 @@ function display() {
     "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" rapport.pdf
 }
 
-clean ; pdf && glossary && pdf && pdf && clean && display
+clean ; pdf && glossary && references && pdf && pdf && clean && display
