@@ -28,4 +28,12 @@ function display() {
     "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" rapport.pdf
 }
 
-clean ; pdf && glossary && references && pdf && pdf && clean && display
+if test "$1" == "quick"; then
+    pdf && display
+elif test "$1" == "clean"; then
+    clean
+elif test "$1" == "final"; then
+    clean ; pdf && glossary && references && pdf && pdf && clean && display
+else
+    clean ; pdf && glossary && references && pdf && pdf && display
+fi
