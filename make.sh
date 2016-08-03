@@ -16,4 +16,12 @@ function glossary() {
     makeglossaries ${PROJET}
 }
 
-clean ; pdf && glossary && pdf && pdf && clean
+function display() {
+    #PID=$(ps | egrep -i acrobat | sed -e "s/^ *//" -e "s/ .*$//")
+    #kill -15 $PID
+    #cp ${PROJET}.pdf ${PROJET}_dp.pdf
+    #"/c/Program Files (x86)/Adobe/Acrobat Reader DC/Reader/acroRD32.exe" ${PROJET}_dp.pdf &
+    "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" rapport.pdf
+}
+
+clean ; pdf && glossary && pdf && pdf && clean && display
