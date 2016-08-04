@@ -19,7 +19,7 @@
 \usepackage{wrapfig}
 \usepackage{numprint}
 \usepackage{hyperref}
-\usepackage{glossaries}
+\usepackage[acronym,toc]{glossaries}
 %\usepackage[left=3cm, right=3cm]{geometry} % Modifier les marges /!\ avec fancyhdr
 
 % --- Includes --- 
@@ -92,6 +92,7 @@
 
 \begin{document}
 \renewcommand\contentsname{Sommaire}    % Remplace Table des matières
+\renewcommand\acronymname{Acronymes}    % Traduction manquante
 %\linespread{1.5}
 \pagenumbering{alph}
 %    \include{title}
@@ -124,7 +125,7 @@
     \bibliographystyle{myieeetr}
     \bibliography{references}
     \newtitle
-    \include{glo}
+    \printglossaries
     \newtitle
     \phantomsection
     \addcontentsline{toc}{section}{Table des figures}
