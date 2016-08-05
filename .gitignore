@@ -19,4 +19,9 @@
 *.glo
 *.gls
 *.ist
+*.pdf
+!/img/*.pdf
+*.vim
+WIP*
+*.db
 
